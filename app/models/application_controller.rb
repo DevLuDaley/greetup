@@ -7,5 +7,6 @@ set :session_secret, "password_security"
 end
 get '/' do
 "Hello, World!"
+erb :view
 end
 end

@@ -1,7 +1,7 @@
 #class MeetupController < Sinatra::Base
 class MeetupController < ActiveRecord::Base
 #has_secure_password
-belongs_to :alumni
+belongs_to :user
 end
 
 

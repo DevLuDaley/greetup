@@ -1,5 +1,5 @@
 #class AlumniController < Sinatra::Base
-class AlumniController < ActiveRecord::Base
+class UserController < ActiveRecord::Base
 has_secure_password
 has_many :meetups
 end

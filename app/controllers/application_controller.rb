@@ -8,12 +8,7 @@ end
 
 get '/' do
 "Hello, World!"
-erb :view
-end
-
-get '/meetups' do
-"Hello, World!"
-erb :show
+erb :"meetups/index"
 end
 
 

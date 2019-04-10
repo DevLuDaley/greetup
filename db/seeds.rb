@@ -1,4 +1,6 @@
 require_relative('/Users/LHD/Development/code/Learn_Labs/ONLINE-web-ft-021119/Week8_Sinatra_Project_Week/greetup/app/models/greetup.rb')
+require_relative('/Users/LHD/Development/code/Learn_Labs/ONLINE-web-ft-021119/Week8_Sinatra_Project_Week/greetup/app/models/greetup.rb')
+require_relative('/Users/LHD/Development/code/Learn_Labs/ONLINE-web-ft-021119/Week8_Sinatra_Project_Week/greetup/app/models/user.rb')
 
 #create users
 rakim = User.create(user_name: "nykid", email: "coolemail@aol.com", city: "New York", state: "New York", zipcode: "somewhere", password:"welcome")

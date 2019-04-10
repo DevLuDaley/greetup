@@ -7,6 +7,7 @@ class CreateUsers < ActiveRecord::Migration
     t.string :state
     t.integer :zipcode
     t.string :password
+    #t.string :password_digest
     #t.integer :something
     end
   end

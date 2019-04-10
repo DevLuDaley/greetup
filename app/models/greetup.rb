@@ -1,5 +1,5 @@
 class Greetup < ActiveRecord::Base
-belongs_to :user
+#belongs_to :user
 # @@all = []
 
 # def self.all

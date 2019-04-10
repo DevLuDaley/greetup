@@ -1,19 +1,20 @@
 #class AlumniController < Sinatra::Base
 class UsersController < ApplicationController
-has_secure_password
-has_many :meetups
-end
+#has_secure_password
+#will allow for 'authenticate' method???"
+#has_many :greetups
+#end
 
 
 #routes needed for login
 #purpose = render the login page (form)
-get '/login' do
-    erb :login
+get '/users/login' do
+    erb :'/users/login'
 end
 
 #routes needed for signup
-get '/signup' do
-    erb :signup
+get '/users/signup' do
+    erb :'/users/signup'
 end
 
 
@@ -29,3 +30,4 @@ end
 # "Hello, World!"
 # end
 # end
+end

@@ -1,0 +1,37 @@
+<P>INDEX PAGE</P>
+<p>I should see greetups below</p>
+#show all greetups
+<% @greetups.each do |greet| %>
+<h4><%= greet.name %></h4>
+<% end %>
+<p>I should see greetups above</p>
+
+
+
+<form action="/articles" method="post">
+    <ul>
+        <li>
+            <label for="name">INDEX PAGINGTON</label>
+            <input id="username" type="text" name="username" />
+        </li>
+        <li>
+            <label for="location">Location</label>
+            <textarea id="location" type="text" name="location">
+      </textarea>
+        </li>
+        <li>
+            <label for="content">Content</label>
+            <textarea id="content" type="text" name="content">
+      </textarea>
+        </li>
+    </ul>
+    <input type="submit" />
+</form>
+
+<label> create a new meetup:</label>
+<br></br>
+<label>name:</label>
+<input type="text" name="meetup[name]" id="meetup_name"></input>
+<br></br>
+<input type="submit" value="Update Meetup">
+</form>

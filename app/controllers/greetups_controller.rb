@@ -1,7 +1,7 @@
 class GreetupsController < ApplicationController
 #class GreetupsController < ActiveRecord::Base
 #has_secure_password
-#belongs_to :user
+belongs_to :user
 #end
 
 

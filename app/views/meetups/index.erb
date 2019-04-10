@@ -1,7 +1,17 @@
+
+<p>I should see meetups below</p>
+#show all meetups
+<% @meetups.each do |meetup| %>
+<h4><%= meetup.event_name %></h4>
+<% end %>
+<p>I should see meetups above</p>
+
+
+
 <form action="/articles" method="post">
     <ul>
         <li>
-            <label for="name">Username</label>
+            <label for="name">INDEX PAGINGINGTON</label>
             <input id="username" type="text" name="username" />
         </li>
         <li>

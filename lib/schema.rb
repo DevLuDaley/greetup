@@ -11,6 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20190410155644) do
+
+  create_table "coffees", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "giants", force: :cascade do |t|
+    t.string "name"
+    t.string "location"
+  end
+
+  create_table "greetups", force: :cascade do |t|
+    t.string  "name"
+    t.string  "location"
+    t.integer "user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string  "user_name"
+    t.string  "email"
+    t.string  "city"
+    t.string  "state"
+    t.integer "zipcode"
+    t.string  "password"
+  end
 
 end

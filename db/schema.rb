@@ -11,7 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190410032501) do
+ActiveRecord::Schema.define(version: 20190410134751) do
+
+  create_table "giants", force: :cascade do |t|
+    t.string "name"
+    t.string "location"
+  end
 
   create_table "greetups", force: :cascade do |t|
     t.string  "name"

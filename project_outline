@@ -1,0 +1,15 @@
+Markdown preview
+user will be able to crud
+
+associations:
+user has_many :greetups
+greetups belongs_to :user
+
+stretch_goals
+include greetup model
+user has many greetups
+user can make greetup public or private
+
+save drafts/final to edit later
+
+

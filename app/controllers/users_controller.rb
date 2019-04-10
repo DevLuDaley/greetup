@@ -12,6 +12,13 @@ get '/users/login' do
     erb :'/users/login'
 end
 
+#GET form needs to have a POST- (this creates something new/a session) in this case a form action
+#to receive the login form, 
+#find the user and log the user in(create a session)
+post '/login' do
+binding.pry
+end
+
 #routes needed for signup
 get '/users/signup' do
     erb :'/users/signup'

@@ -3,6 +3,13 @@ class GreetupsController < ApplicationController
 #belongs_to :user
 #end
 
+#get greetups/new to create form for new event
+
+#post greetups  to create a new greetup event
+
+#show
+
+#index
 
  # GREETUPS EDIT by ID#
 
@@ -30,7 +37,7 @@ end
 
 get '/greetups/new' do
 #"Hello, World!"
-@greetups = Greetup.all
+#@greetups = Greetup.all
 erb :"greetups/new"
 end
 
@@ -48,6 +55,12 @@ get '/greetups/:id' do
 #"Hello, World!"
 @greetups = Greetup.all
 erb :"greetups/show"
+end
+
+get '/greetups/all' do
+#"Hello, World!"
+@greetups = Greetup.all
+erb :"greetups/all"
 end
 
 

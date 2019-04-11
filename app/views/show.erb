@@ -1,28 +1,4 @@
-<label> here are all of your meetups:</label>
+<h2><%= @user.name %>'s Show Page</h2>
 
-<form action="/owners/<%=@user.id%>" method="POST">
-    <label>Name:</label>
-
-    <br></br>
-
-    <input type="text" name="user[name]" id="user_name" value="<%=@user.name%>">
-
-    <br></br>
-
-    <label>Choose an existing pet:</label>
-
-    <br></br>
-
-    <%@meetups.each do |pet|%>
-    <input type="checkbox" name="name[pet_ids][]" value="<%=meetup.id%>" id="<%=meetup.name%>"
-        <%='checked' if @user.meetups.include?(meetup) %>><%=meetup.name%></input>
-    <%end%>
-    
-
-
-<br></br>
-<label>name:</label>
-<input type="text" name="meetup[name]" id="meetup_name"></input>
-<br></br>
-<input type="submit" value="Update Meetup">
-</form>
+<h3>Email: </h3>
+<h4><%= @user.email %></h4>

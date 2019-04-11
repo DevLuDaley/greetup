@@ -60,7 +60,7 @@ end
 get '/users/:id' do
     # what do I need to do first?
     #raise params.inspect
-    @user = User.find_by(id: params(:id))
+    @user = User.find_by(id: params[:id])
     erb :'/users/show'
 
 end

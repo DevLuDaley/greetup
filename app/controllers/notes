@@ -34,3 +34,6 @@ shuttle buss between views and controllers
 ##rarely render (erb :) from a post patch or delete request
 ###maybe allowing a user to fix an invalid form
 #get /:"" = dynamic
+
+
+#when we have a get request with data that it received from the db we'll need to have an erb/render so that we can use that variable within our code

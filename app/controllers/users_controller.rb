@@ -24,7 +24,8 @@ post '/login' do
 #authenticate the user - verify user has th right credentials user_name/password 
 #prove that they are who they say they are
 if @user.authenticate(params[:password])
-
+#raw string input by user  => (params[:password])
+#use hashing algorithm to math the password
 #log the user in
 session[:user_id] = @user.id #logging in user
 #redirect to users landing page (show, index, or dashboard)

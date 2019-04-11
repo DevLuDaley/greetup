@@ -16,8 +16,12 @@ end
 #to receive the login form, 
 #find the user and log the user in(create a session)
 post '/login' do
-binding.pry
+#binding.pry
 end
+
+#find the user
+#authenticate the user
+#log the user in
 
 #routes needed for signup
 get '/users/signup' do

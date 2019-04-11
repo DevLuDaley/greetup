@@ -14,4 +14,20 @@ get '/' do
 erb :welcome
 end
 
+  helpers do
+    def logged_in?
+      !!current_user
+    #allow to return true or false
+    #create boolean reflection of it's truthiness
+    end
+
+    
+    def current_user
+      @current_user || = User.find_by(id: session[:user_id])
+      #use memoization, it will reduce the number of database calls
+      #will return user if there is one
+      #instance variable has scope outside of method, extends to class.
+    end
+  end
+
 end

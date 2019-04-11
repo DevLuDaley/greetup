@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
 #routes needed for login
 #purpose = render the login page (form)
-get '/users/login' do
+get '/login' do
     erb :'/users/login'
 end
 
@@ -23,12 +23,23 @@ post '/login' do
 @user = User.find_by(user_name: params[:username])
 #authenticate the user - verify user has th right credentials user_name/password 
 #prove that they are who they say they are
-@user.authenticate(params[:password])
+if @user.authenticate(params[:password])
 
 #log the user in
+session[:user_id] = @user.id #logging in user
 #redirect to users landing page (show, index, or dashboard)
-
+redirect "users/#{user.id}"
+puts session
+else
+#tell them that they entered invalid 
+#redirect to login page
 end
+end
+#user SHOW route
+get '/users/:id' do
+    "this will be the user show route"
+end
+
 
 #routes needed for signup
 get '/users/signup' do

@@ -1,3 +1,10 @@
 What is the purpose of get /signup
 :get them to a page wherre they can signup
 :render the signup form
+
+
+#sinatra - in sinatra the method matches - http verb
+
+
+
+:persist data to the database

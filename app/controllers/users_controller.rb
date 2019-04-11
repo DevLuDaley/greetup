@@ -44,7 +44,11 @@ end
 
 #routes needed for signup
 get '/signup' do
-    erb :'/signup'
+    erb :signup
+end
+
+post '/users' do
+
 end
 
 

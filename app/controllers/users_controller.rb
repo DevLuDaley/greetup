@@ -23,17 +23,18 @@ post '/login' do
 @user = User.find_by(user_name: params[:username])
 #authenticate the user - verify user has th right credentials user_name/password 
 #prove that they are who they say they are
-if @user.authenticate(params[:password])
+if @user && @user.authenticate(params[:password]) #log the user in
 #raw string input by user  => (params[:password])
 #use hashing algorithm to math the password
-#log the user in
+
+ # redirect to the user's show page
 session[:user_id] = @user.id #logging in user
 #redirect to users landing page (show, index, or dashboard)
 redirect "users/#{user.id}"
 puts session
 else
-#tell them that they entered invalid 
-#redirect to login page
+    #tell them that they entered invalid 
+    #redirect to login page
 end
 end
 
@@ -44,15 +45,19 @@ get '/signup' do
 end
 
 post '/users' do
-if params[:name] != "" && params[:user_name] != "" && params[:password] != ""
-    #valid input
-    @user = User.create(params)
-    #where should the user be sent
+    if params[:name] != "" && params[:user_name] != "" && params[:password] != ""
+        #valid input
+        @user = User.create(params)
+        session[:user_id] = @user.id #logging in user #after user signup
+        #where should the user be sent
     #answer = show page
     redirect "/users/#{@user.id}"
     #erb :'/users/show'
 else
 #invalid input
+redirect '/signup'
+#stretch goal::: add error page with link to the signup page.
+###it would be a  better UX for them to receive a message about what they did wrong and how they can fix it.
 end
 
 end

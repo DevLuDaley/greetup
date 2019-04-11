@@ -65,6 +65,10 @@ get '/users/:id' do
 
 end
 
+get 'logout' do
+session.clear
+redirect '/'
+end
 
     # configure do
 # set :public_folder, 'public'

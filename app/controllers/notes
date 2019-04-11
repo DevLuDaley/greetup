@@ -4,7 +4,33 @@ What is the purpose of get /signup
 
 
 #sinatra - in sinatra the method matches - http verb
-
+#bcrypt allows us to call "password" instead of password_digest in the views and controllers
 
 
 :persist data to the database
+#need to use params to persist the data
+shuttle buss between views and controllers
+
+
+#signup "name" becomes keys for params input hash
+{:name, :username, :password}
+
+<input type="text" name="name" value="">
+<input type="text" name="user_name" value="">
+<input type="text" name="password" value="">
+<input type="submit" name="" value="Create User">
+
+#redirect - why do we do it vs erb?
+##erb = app_controller tells program path to erb => set :views, "app/views" 
+###redirect = request that we are sending - result is a new http get request
+####it's a better choice because 
+######"get" requests are best for "getting" a new page
+#######separation of concerns - 1 job per route i.e in block of a post route use redirect to "get" a page instead of erb since it is for "get" reqs
+####### erb give access to instance variables within block - before erb is called/rendered
+
+# 1 job per route --- "post" job = 'create' a new user SO... use redirect to 'show' new user
+
+#should I redirect or should I render -> "what route are you in and what's it's job?"
+##rarely render (erb :) from a post patch or delete request
+###maybe allowing a user to fix an invalid form
+#get /:"" = dynamic

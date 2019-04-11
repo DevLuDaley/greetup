@@ -36,10 +36,6 @@ else
 #redirect to login page
 end
 end
-#user SHOW route
-get '/users/:id' do
-    "this will be the user show route"
-end
 
 
 #routes needed for signup
@@ -48,11 +44,22 @@ get '/signup' do
 end
 
 post '/users' do
-
+if params[:name] != "" && params[:user_name] != "" && params[:password] != ""
+    #valid input
+    @user = User.new(params)
+    #where should the user be sent
+    #answer = show page
+    redirect "/users/#{@user.id}"
+    #erb :'/users/show'
+else
+#invalid input
 end
 
-
-
+end
+#user SHOW route
+get '/users/:id' do
+erb :'/users/show'
+end
 
 
     # configure do

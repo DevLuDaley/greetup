@@ -11,6 +11,40 @@ class GreetupsController < ApplicationController
 
 #index
 
+# GREETUPS NEW PAGE #
+
+get '/greetups/new' do
+#"Hello, World!"
+#@greetups = Greetup.all
+erb :"greetups/new"
+end
+
+post '/greetups' do
+#raise params.inspect
+#create new greetup and save to the db
+#only want to save entry when user is logged_in
+if !logged_in?
+redirect "/"
+end
+
+if params[:name] != "" && if params[:location] != ""
+#create new entry
+@greetup = Greetup.create(name: params[:name],location: params[:location], user_id: current_user.id)
+#, title: params[:title], mood: params[:mood]))
+redirect "greetups/#{@greetup.id}"
+else
+    redirect '/greetups/new'
+end
+end
+
+
+#show route
+ 
+
+
+
+
+
  # GREETUPS EDIT by ID#
 
 get '/greetups/edit' do
@@ -33,13 +67,7 @@ get '/greetups/index' do
 erb :"greetups/index"
 end
 
-# GREETUPS NEW PAGE #
 
-get '/greetups/new' do
-#"Hello, World!"
-#@greetups = Greetup.all
-erb :"greetups/new"
-end
 
 # GREETUPS SHOW PAGE #
 
@@ -80,4 +108,5 @@ end
 # end
 # end
 
+end
 end

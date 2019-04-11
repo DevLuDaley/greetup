@@ -46,7 +46,7 @@ end
 post '/users' do
 if params[:name] != "" && params[:user_name] != "" && params[:password] != ""
     #valid input
-    @user = User.new(params)
+    @user = User.create(params)
     #where should the user be sent
     #answer = show page
     redirect "/users/#{@user.id}"
@@ -58,7 +58,11 @@ end
 end
 #user SHOW route
 get '/users/:id' do
-erb :'/users/show'
+    # what do I need to do first?
+    #raise params.inspect
+    @user = User.find_by(id: params(:id))
+    erb :'/users/show'
+
 end
 
 

@@ -1,8 +1,10 @@
 <P>INDEX PAGE</P>
 <p>I should see greetups below</p>
-#show all greetups
+
 <% @greetups.each do |greet| %>
 <h4><%= greet.name %></h4>
+<h4><%= greet.id %> , <%= greet.user_id %> </h4>
+<h4><%= greet.user %></h4>
 <% end %>
 <p>I should see greetups above</p>
 

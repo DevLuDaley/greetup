@@ -11,20 +11,21 @@ class GreetupsController < ApplicationController
 
 #index
 
+#1
 get '/greetups' do
 #"Hello, World!"
-  #@greetups = Greetup.all
+  @greetups = Greetup.all
     erb :"greetups/index"
     end
 end
 
 
-
-# GREETUPS NEW PAGE #
+#2
+# GREETUPS CREATE/NEW PAGE #
 
 get '/greetups/new' do
-#"Hello, World!"
-erb :"greetups/new"
+"Hello, World!"
+#erb :"greetups/new"
 end
 
 post '/greetups' do
@@ -45,6 +46,7 @@ else
 #end
 end
 
+#3
 # GREETUPS SHOW PAGE #
 #show route for greetups page
 get '/greetups/:id' do
@@ -52,6 +54,7 @@ get '/greetups/:id' do
 erb :'/greetups/show'
 end
 
+#4
 
  get '/greetups/:id/edit' do
     "Hello, World"

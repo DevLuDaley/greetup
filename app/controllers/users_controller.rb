@@ -20,7 +20,7 @@ post '/login' do
 
 #params look like
 #find the user
-@user = User.find_by(user_name: params[:username])
+@user = User.find_by(user_name: params[:user_name])
 #authenticate the user - verify user has th right credentials user_name/password 
 #prove that they are who they say they are
 if @user && @user.authenticate(params[:password]) #log the user in
@@ -30,7 +30,7 @@ if @user && @user.authenticate(params[:password]) #log the user in
  # redirect to the user's show page
 session[:user_id] = @user.id #logging in user
 #redirect to users landing page (show, index, or dashboard)
-redirect "users/#{user.id}"
+redirect "users/#{@user.id}"
 puts session
 else
     #tell them that they entered invalid 
@@ -39,15 +39,16 @@ end
 end
 
 
-#routes needed for signup
+#routes needed for SIGN-UP PAGE/ROUTE
 get '/signup' do
     erb :signup
 end
 
 post '/users' do
-    if params[:name] != "" && params[:user_name] != "" && params[:password] != ""
+    #if params[:name] != "" && params[:user_name] != "" && params[:password] != ""
         #valid input
         @user = User.create(params)
+            if @user.save
         session[:user_id] = @user.id #logging in user #after user signup
         #where should the user be sent
     #answer = show page

@@ -3,9 +3,12 @@
 
 <% @greetups.each do |greet| %>
 <h4><%= greet.name %></h4>
-<h4><%= greet.id %> , <%= greet.user_id %> </h4>
-<h4><%= greet.user %></h4>
+<br>
+<h4>EVENT ID = <%= greet.id %> , User_ID = <%= greet.user_id %> </h4>
+<h4><%  #if greet.user_id == User.user_id %></h4>
+<h4><% #User.name %></h4>
 <% end %>
+<br>
 <p>I should see greetups above</p>
 
 

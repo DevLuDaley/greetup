@@ -1,4 +1,4 @@
-#require './config/environment'
+require './config/environment'
 
 class ApplicationController < Sinatra::Base
 
@@ -6,7 +6,7 @@ class ApplicationController < Sinatra::Base
     set :public_folder, 'public'
     set :views, 'app/views'
  enable :sessions
- set :session_secret, "greetup_app"
+ set :session_secret, "greetup"
   register Sinatra::Flash
   end
 
@@ -49,7 +49,8 @@ end
       flash[:errors] = "You must be logged in to view the page you tried to view"
       redirect '/'
      end
-     
+     end
+
     def redirect_if_logged_in
       if logged_in?
       redirect "/users#{current_user.id}"

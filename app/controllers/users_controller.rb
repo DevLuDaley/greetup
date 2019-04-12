@@ -17,7 +17,6 @@ end
 #find the user and log the user in(create a session)
 post '/login' do
 #binding.pry
-
 #params look like
 #find the user
 @user = User.find_by(user_name: params[:user_name])
@@ -30,48 +29,67 @@ if @user && @user.authenticate(params[:password]) #log the user in
  # redirect to the user's show page
 session[:user_id] = @user.id #logging in user
 #redirect to users landing page (show, index, or dashboard)
+   
+flash[:message] = "Welcome, #{@user.name}!"
+
 redirect "users/#{@user.id}"
-puts session
+#puts session
 else
+  
+    flash[:errors] = "Your credentials were invalid.  Please sign up or try again."
     #tell them that they entered invalid 
     #redirect to login page
-end
+    redirect '/login' 
+    end
 end
 
 
 #routes needed for SIGN-UP PAGE/ROUTE
 get '/signup' do
+    redirect_if_logged_in
+    #erb will "render" view. render is user in rails instead of erb.
     erb :signup
 end
 
 post '/users' do
     #if params[:name] != "" && params[:user_name] != "" && params[:password] != ""
         #valid input
+    # params will look like this:
+            # {
+    #   "name"=>"lu",
+    #   "user_name"=>"Lu",
+    #   "password"=>"password"
+    # }
+
         @user = User.create(params)
             if @user.save
         session[:user_id] = @user.id #logging in user #after user signup
         #where should the user be sent
     #answer = show page
-    redirect "/users/#{@user.id}"
-    #erb :'/users/show'
+        #erb :'/users/show'
+      flash[:message] = "You have successfully created an account, #{@user.name}! Welcome!"
+      redirect "/users/#{@user.id}"
 else
 #invalid input
-redirect '/signup'
-#stretch goal::: add error page with link to the signup page.
-###it would be a  better UX for them to receive a message about what they did wrong and how they can fix it.
-end
+        flash[:errors] = "Account creation failure: #{@user.errors.full_messages.to_sentence}"
+        redirect '/signup'
+        #stretch goal::: add error page with link to the signup page.
+        ###it would be a  better UX for them to receive a message about what they did wrong and how they can fix it.
+    end
 
 end
 #user SHOW route
 get '/users/:id' do
     # what do I need to do first?
     #raise params.inspect
+    #@users = User.all
     @user = User.find_by(id: params[:id])
+    
     erb :'/users/show'
 
 end
 
-get 'logout' do
+get '/logout' do
 session.clear
 redirect '/'
 end

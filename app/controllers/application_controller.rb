@@ -23,10 +23,13 @@ end
 
 
   helpers do
+
+
     def logged_in?
       !!current_user
     #allow to return true or false
     #create boolean reflection of it's truthiness
+    # true if user is logged in, otherwise false
     end
 
     
@@ -36,6 +39,18 @@ end
       #will return user if there is one
       #instance variable has scope outside of method, extends to class.
     end
+    
+    def authorized_to_edit?(greetup)
+      greetup.user == current_user
+    end
+
+    def redirect_if_not_logged_in
+      if logged_in?
+      redirect "/users#{current_user.id}"
+      end
+      
+    end
+
   end
 
 end

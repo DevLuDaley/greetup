@@ -45,6 +45,12 @@ end
     end
 
     def redirect_if_not_logged_in
+     if !logged_in
+      flash[:errors] = "You must be logged in to view the page you tried to view"
+      redirect '/'
+     end
+     
+    def redirect_if_logged_in
       if logged_in?
       redirect "/users#{current_user.id}"
       end

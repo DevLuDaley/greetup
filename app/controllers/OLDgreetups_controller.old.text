@@ -13,8 +13,7 @@ class GreetupsController < ApplicationController
 
 get '/greetups' do
 #"Hello, World!"
-  #@greetups = Greetup.all
-    erb :"greetups/index"
+    erb :@greetups = Greetup.all
     end
 end
 
@@ -57,6 +56,58 @@ end
     "Hello, World"
     erb :"/greetup/edit"
  end
+
+#  # GREETUPS EDIT by ID#
+
+# get '/greetups/edit' do
+# #get '/greetups/id:/edit' do
+# #"Hello, World!"
+# #@greetups = Greetup.all
+# erb :"greetups/edit"
+# end
+
+#     # GREETUPS CREATE #
+# get '/greetups/create' do
+# #"Hello, World!"
+# @greetups = Greetup.all
+# erb :"greetups/create"
+# end
+
+# get '/greetups/index' do
+# #"Hello, World!"
+# @greetups = Greetup.all
+# erb :"greetups/index"
+# end
+
+
+
+# GREETUPS SHOW PAGE #
+
+# get '/greetups/show' do
+# #"Hello, World!"
+# @greetups = Greetup.all
+# erb :"greetups/show"
+# end
+
+# GREETUPS by ID #
+
+get '/greetups/:id' do
+#"Hello, World!"
+@greetups = Greetup.all
+erb :"greetups/show"
+end
+
+get '/greetups/all' do
+#"Hello, World!"
+@greetups = Greetup.all
+erb :"greetups/all"
+end
+
+
+
+
+
+
 
     # configure do
 # set :public_folder, 'public'

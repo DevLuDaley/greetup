@@ -25,9 +25,12 @@ class GreetupsController < ApplicationController
 #2
 # GREETUPS CREATE/NEW PAGE #
   get '/greetups/new' do
+    @greetups = Greetup.all
     #redirect_if_not_logged_in
   #if !logged_in?
   #  redirect "/"
+    redirect_if_not_logged_in
+    @error_message = params[:error]
     erb :'greetups/new'
   #end
   end
@@ -37,6 +40,7 @@ post '/greetups' do
 #create new greetup and save to the db
 #only want to save entry when user is logged_in
 #redirect_if_not_logged_in
+@greetups = Greetup.all
 if !logged_in?
 redirect "/"
 end
@@ -45,8 +49,8 @@ end
 #binding.pry
 if params[:name] != "" && params[:location] != ""
   #create new entry
-  @greetup = Greetup.create(name: params[:Name],location: params[:Location], user_id: current_user.id)
-  #, title: params[:title], mood: params[:mood]))
+  @greetup = Greetup.create(name: params[:name],location: params[:location], user_id: current_user.id)
+  #, title: params[:title], mood: params[:mood])) 
    flash[:message] = "Greetup successfully created." #if @greetup.id
   redirect "greetups/#{@greetup.id}"
 else
@@ -60,9 +64,11 @@ end
 # GREETUPS SHOW PAGE #
 #show route for greetups page
 get '/greetups/:id' do
-@greetup = Greetup.find(params[:id])
+#@greetup = Greetup.find(params[:id])
+#@greetups = Greetup.all
 #@greetup = Greetup.find_by(id: params[:id])
-set_greetup
+#set_greetup
+@greetup = Greetup.find(params[:id])
 erb :'/greetups/show'
 end
 
@@ -72,8 +78,9 @@ end
  get '/greetups/:id/edit' do
     #redirect_if_not_logged_in
     #binding.pry
-    @greetup = Greetup.find_by(params[:id])
+    @greetups = Greetup.all
     #set_greetup
+    @greetup = Greetup.find_by(params[:id])
 if authorized_to_edit?(@greetup)
     erb :"/greetups/edit"
 else
@@ -87,6 +94,9 @@ end
     # 1. find the greetup
     #set_greetup
     @greetup = Greetup.find(params[:id])
+    @greetups = Greetup.all
+    if logged_in?
+    @greetup = Greetup.find(params[:id])
     if @greetup.user == current_user && params[:name] != ""
     # 2. modify (update) the greetup
       @greetup.update(name: params[:name])
@@ -96,10 +106,13 @@ end
       redirect "users/#{current_user.id}"
     end
   end
+end
 
 delete '/greetups/:id' do
-  set_greetup
+  #set_greetup
+  @greetup = Greetup.find(params[:id])
   if authorized_to_edit?(@greetup)
+    @greetups = Greetup.all
     @greetup.destroy
      flash[:message] = "Successfully deleted that event."
     redirect '/greetups'
@@ -109,7 +122,12 @@ end
   private
 
   def set_greetup
+puts "*******************************************************"
+puts "self"
+puts "*******************************************************"
     @greetup = Greetup.find(params[:id])
+    #binding.pry
+    #@greetups = Greetup.all
   end
 
 end

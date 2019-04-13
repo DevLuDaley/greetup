@@ -31,6 +31,7 @@ session[:user_id] = @user.id #logging in user
 #redirect to users landing page (show, index, or dashboard)
    
 flash[:message] = "Welcome, #{@user.name}!"
+#binding.pry
 
 redirect "users/#{@user.id}"
 #puts session

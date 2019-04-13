@@ -37,3 +37,38 @@ shuttle buss between views and controllers
 
 
 #when we have a get request with data that it received from the db we'll need to have an erb/render so that we can use that variable within our code
+
+
+Rack::MethodOverride allows me to change the  http method of a verb.
+
+patch because I'm changing info
+
+Video #5
+40 mins 
+scope of instance variabel and 
+Set_journal_entry explained
+
+50 mins
+need to fix => any user can access form and edit info
+
+
+Active record methods to update Journal entry
+
+
+
+
+
+FIX
+
+App_controller
+
+-Errors stemming from "if !logged_in?"
+
+In - GreetupsController 
+    - /index route is broken
+    set_greetup
+    
+    
+    - LD can access/edit/delete ND's greetup at route greetups/19 aka http://127.0.0.1:9393/greetups/19
+
+PRIVATE = something that we won't call/use outside of this class.

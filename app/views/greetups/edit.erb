@@ -1,1 +1,14 @@
-<p>EDIT Form Goes Here</p>
+EDIT PAGE FOR A JOURNAL ENTRY
+
+<form class="" action="/greetups/<%= @greetup.id %>" method="post">
+    <input type="hidden" name="_method" value="patch">
+    
+    <label for="title">Name:</label>
+    <input type="text" name="name" value="<%= @greetup.name %>">    
+
+    <label for="location">Location:</label>
+    <input type="text" name="location" value="<%= @greetup.location %>">
+    
+    
+    <input type="submit" name="" value="Edit Entry">
+</form>

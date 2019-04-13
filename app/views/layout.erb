@@ -18,13 +18,20 @@
 <div class="nav">
   <% if logged_in? %>
   <a href="/logout">Logout</a>
-  <a href='/greetups/index'>All Greetups</a>
+  <a href='/greetups'>All Greetups</a>
   <a href="/greetups/new">New Greetup</a>
   <% end %>
 </div>
 
     <div class="wrapper">
 
+<% flash.keys.each do |type| %>
+<div data-alert class="flash <%= type %> alert-box radius">
+  <%= flash[type] %>
+  <a href="#" class="close">&times;</a>
+</div>
+<% end %>
+<BR></BR>
         <%= yield %>
 
       <footer class="branding">

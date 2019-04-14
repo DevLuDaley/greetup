@@ -1,2 +1,2 @@
 # greetup
-meet up app for bootcamp graduates
+a meet up manager app for bootcamp graduates

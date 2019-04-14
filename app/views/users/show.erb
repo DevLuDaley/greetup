@@ -1,12 +1,5 @@
-<h2><%= @user.name.capitalize %>'s Greetups Page</h2>
-
-<h4>
-    <% %>
-</h4>
-
-<h4>
-    <% @greetups.each do |greetup| %>
-</h4>
+<h2> <%= @user.name.capitalize %>'s Greetups Page </h2>
+<h4> <% @greetups.each do |greetup| %> </h4>
 <br>
 <h5><a href="/greetups/<%= greetup.id %>">#<%= greetup.id %>: <%=greetup.name%> - <%=greetup.location%> created by <%= greetup.user.name %></a></h5>
 <br>

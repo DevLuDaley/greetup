@@ -17,7 +17,6 @@
 
 <div class="nav">
   <% if logged_in? %>
-  <a href="/users/<%=@user.id unless @user.nil?%>"><%=@user.name unless @user.nil?%>'s Greetups</a>
   <a href="/greetups">All Greetups</a>
   <a href="/greetups/new">Create New Greetup</a>
   <a href="/logout">Logout</a>

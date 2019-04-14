@@ -43,17 +43,15 @@ redirect_if_not_logged_in
 # if !logged_in?
 # redirect "/"
 #end
-
 #end
-#binding.pry
 if params[:name] != "" && params[:location] != ""
   #create new entry
   @greetup = Greetup.create(name: params[:name],location: params[:location], user_id: current_user.id)
   #, title: params[:title], mood: params[:mood])) 
    flash[:message] = "Woo hoo! You just created #{@greetup.name}!" #if @greetup.id
-  redirect "greetups/#{@greetup.id}"
+   redirect "greetups/#{@greetup.id}"
 else
-  flash[:errors] = "Something went wrong - you must provide information for your event."
+  flash[:errors] = "Something went wrong - all fields are required to create your new event."
   redirect '/greetups/new'
   #end
   end
@@ -125,12 +123,7 @@ end
   private
 
   def set_greetup
-    # puts "*******************************************************"
-    # puts self
-    # puts "*******************************************************"
-    @greetup = Greetup.find(params[:id])
-    #binding.pry
-    #@greetups = Greetup.all
+  @greetup = Greetup.find(params[:id])
   end
 
 end

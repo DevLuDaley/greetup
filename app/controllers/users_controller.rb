@@ -68,7 +68,7 @@ post '/users' do
         #where should the user be sent
     #answer = show page
         #erb :'/users/show'
-      flash[:message] = "You have successfully created an account, #{@user.name}! Welcome!"
+      flash[:message] = "Congrats #{@user.name.upcase}, You have successfully created an account!"
       redirect "/users/#{@user.id}"
 else
 #invalid input
@@ -85,7 +85,8 @@ get '/users/:id' do
     #raise params.inspect
     #@users = User.all
     @user = User.find_by(id: params[:id])
-    
+    redirect_if_not_logged_in
+    @greetups = Greetup.all
     erb :'/users/show'
 
 end

@@ -1,41 +1,7 @@
-<P>INDEX PAGE</P>
-<p>Greetups List</p>
-
-<% @greetups.each do |greet| %>
-<h4><%= greet.name %></h4>
-<h4>EVENT ID = <%= greet.id %> , User_ID = <%= greet.user_id %> </h4>
+<h2>All Greetups</h2>
 <br>
-<h4><%  #if greet.user_id == User.user_id %></h4>
-<h4><% #User.name %></h4>
+<p><% @greetups.each do |greet| %> </p>
+<h5><a href="/greetups/<%= greet.id %>">#<%= greet.id %>: <%=greet.name%> - <%=greet.location%></a></h5>
+    <br>
 <% end %>
 <br>
-
-
-<form action="/articles" method="post">
-    <ul>
-        <li>
-            <label for="name">INDEX PAGINGTON</label>
-            <input id="username" type="text" name="username" />
-        </li>
-        
-        <label for="name">Greetup Name</label>
-        <textarea id="name" type="text" name="name">
-  </textarea>
-        <li>
-        </li>
-        <li>
-            <label for="location">Location</label>
-            <textarea id="location" type="text" name="location">
-              </textarea>
-        </li>
-    </ul>
-    <input type="submit" />
-</form>
-
-<label> create a new meetup:</label>
-<br></br>
-<label>name:</label>
-<input type="text" name="meetup[name]" id="meetup_name"></input>
-<br></br>
-<input type="submit" value="Update Meetup">
-</form>

@@ -3,6 +3,10 @@
 ***User must only be able to CRUD their resources
 ***Extra**Password should be invisble during login
 
+****want = "your page" 
+###when on "/greetups" the program doesn't know who the user is.. user = nil...why though? 
+
+
 USER
 Specs:
 

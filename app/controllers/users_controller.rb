@@ -90,9 +90,9 @@ get '/users/:id' do
 end
 
 get '/logout' do
-session.clear
-      flash[:message] = "Congrats #{@user.name.upcase}, You have successfully logged out your account."
-redirect '/'
+    session.clear
+    redirect '/'
+    flash[:message] = "Congrats #{@user.name.upcase}, You have successfully logged out your account."
 end
 
     # configure do

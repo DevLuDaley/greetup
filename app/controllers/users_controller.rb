@@ -29,18 +29,16 @@ if @user && @user.authenticate(params[:password]) #log the user in
  # redirect to the user's show page
 session[:user_id] = @user.id #logging in user
 #redirect to users landing page (show, index, or dashboard)
-   
 flash[:message] = "Welcome, #{@user.name}!"
 #binding.pry
 
 redirect "users/#{@user.id}"
 #puts session
 else
-  
     flash[:errors] = "Your credentials were invalid.  Please sign up or try again."
-    #tell them that they entered invalid 
+    #tell them that they entered invalid
     #redirect to login page
-    redirect '/login' 
+    redirect '/login'
     end
 end
 
@@ -93,6 +91,7 @@ end
 
 get '/logout' do
 session.clear
+      flash[:message] = "Congrats #{@user.name.upcase}, You have successfully logged out your account."
 redirect '/'
 end
 

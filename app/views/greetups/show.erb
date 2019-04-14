@@ -1,10 +1,18 @@
+
+
 <h3><%= @greetup.name %></h3>
 <br> 
  <p>Greetup ID#: <%= @greetup.id %> </p>  
 <p>Greetup Location: <%= @greetup.location %></p>
 <p><% #@greetup.owner_id %></p>
 
+<% if authorized_to_edit?(@greetup) %>
+<%# if current_user == @greetup.user %>
 <a href="/greetups/<%= @greetup.id %>/edit">Edit Greetup</a>
-<br>
-<br>
-Delete Greetup Event
+<br><br>
+<form class="" action="/greetups/<%= @greetup.id%>" method="post">
+    <!-- How do I turn this form submission into a DELETE request??? -->
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" name="" value="Delete this Event">
+</form>
+<% end %>

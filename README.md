@@ -16,6 +16,6 @@ Built With
 
 Feel free to contribute!  Please fork, clone, and submit a PR if you like!
 
-License
+## License
 The gem is available as open source under the terms of the MIT License.
 
